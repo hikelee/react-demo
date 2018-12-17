@@ -1,0 +1,2 @@
+"proxy": { "/api": { "target": "http://localhost:7000/", "changeOrigin": true, "pathRewrite": { "^/api/users" : "/api/snippets/members/" } } }
+"proxy": { "/api": { "target": "http://jsonplaceholder.typicode.com/", "changeOrigin": true, "pathRewrite": { "^/api" : "" } } }
