@@ -5,3 +5,6 @@ coreapi
 dj-database-url
 gunicorn
 whitenoise
+requests
+python_utils
+filelock

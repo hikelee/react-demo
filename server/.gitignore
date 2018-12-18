@@ -9,3 +9,4 @@ env
 !.gitignore
 !.travis.yml
 .idea
+*.lock
