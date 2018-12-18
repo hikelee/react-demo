@@ -26,7 +26,7 @@ let routes = [
         "component": require('../users/page.js').default
       },
       {
-        "component": () => React.createElement(require('E:/code/dva/examples/user-dashboard/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', routes: '[{"path":"/","component":"./src\\\\layouts\\\\index.js","routes":[{"path":"/","exact":true,"component":"./src/pages/index.js"},{"path":"/users","exact":true,"component":"./src/pages/users/page.js"}]}]' })
+        "component": () => React.createElement(require('/home/code/react-demo/client/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', routes: '[{"path":"/","component":"./src/layouts/index.js","routes":[{"path":"/","exact":true,"component":"./src/pages/index.js"},{"path":"/users","exact":true,"component":"./src/pages/users/page.js"}]}]' })
       }
     ]
   }

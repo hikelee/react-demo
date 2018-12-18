@@ -36,7 +36,7 @@ if (module.hot) {
   });
 }
 
-require('E:/code/dva/examples/user-dashboard/src/global.css');
+require('/home/code/react-demo/client/src/global.css');
 // Enable service worker
 if (process.env.NODE_ENV === 'production') {
   require('./registerServiceWorker');
