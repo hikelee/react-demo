@@ -55,4 +55,3 @@ class MemberViewSet(viewsets.ModelViewSet):
             ('count', count),
             ('results', data)
         ]))
-
