@@ -1,6 +1,6 @@
 from collections import OrderedDict
 
-from django.contrib.auth.models import User
+from snippets.models import User
 from rest_framework import permissions, renderers, viewsets
 from rest_framework.decorators import detail_route
 from rest_framework.response import Response
@@ -50,6 +50,8 @@ class MemberViewSet(viewsets.ModelViewSet):
         serializer.save()
 
     def get_paginated_response(self, data):
+        from snippets.models import ContentType
+        print(ContentType.objects.all())
         count = self.paginator.page.paginator.count
         return Response(OrderedDict([
             ('count', count),
