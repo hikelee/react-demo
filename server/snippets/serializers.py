@@ -5,9 +5,11 @@ from snippets.models import Snippet, Member
 
 
 class MemberSerializer(serializers.HyperlinkedModelSerializer):
+    create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+
     class Meta:
         model = Member
-        fields = ('id', 'name', 'email', 'website')
+        fields = ('id', 'name', 'email', 'website', 'balance', 'address', 'status', 'birthday', 'create_time', 'signature', 'single')
 
 
 class SnippetSerializer(serializers.HyperlinkedModelSerializer):

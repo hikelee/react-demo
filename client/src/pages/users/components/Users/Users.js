@@ -22,7 +22,19 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
   function createHandler(values) {
     dispatch({ type: 'users/create', payload: values, });
   }
-
+  const rowSelection = {
+    onChange: (selectedRowKeys, selectedRows) => {
+      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+    },
+    getCheckboxProps: record => ({
+      disabled: record.email === 'xqiu@yahoo.com', // Column configuration not to be checked
+      name: record.email,
+    }),
+    selections:[
+    
+  ],
+  };
+  
   const columns = [
     { title: 'Name', dataIndex: 'name', key: 'name', render: text => <a href="">{text}</a>, },
     { title: 'Email', dataIndex: 'email', key: 'email', },
@@ -43,7 +55,7 @@ function Users({ dispatch, list: dataSource, loading, total, page: current }) {
         <div className={styles.create}>
           <UserModal record={{}} onOk={createHandler}> <Button type="primary">Create User</Button> </UserModal>
         </div>
-        <Table columns={columns} dataSource={dataSource} loading={loading} rowKey={record => record.id} pagination={false} />
+        <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} loading={loading} rowKey={record => record.id} pagination={false} />
         <Pagination className="ant-table-pagination" total={total} current={current} pageSize={PAGE_SIZE} onChange={pageChangeHandler} />
       </div>
     </div>

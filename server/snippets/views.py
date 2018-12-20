@@ -1,11 +1,9 @@
-from collections import OrderedDict
-
-from snippets.models import User
 from rest_framework import permissions, renderers, viewsets
 from rest_framework.decorators import detail_route
 from rest_framework.response import Response
 
 from snippets.models import Snippet, Member
+from snippets.models import User
 from snippets.permissions import IsOwnerOrReadOnly
 from snippets.serializers import SnippetSerializer, UserSerializer, MemberSerializer
 
@@ -50,10 +48,14 @@ class MemberViewSet(viewsets.ModelViewSet):
         serializer.save()
 
     def get_paginated_response(self, data):
-        from snippets.models import ContentType
-        print(ContentType.objects.all())
-        count = self.paginator.page.paginator.count
-        return Response(OrderedDict([
-            ('count', count),
-            ('results', data)
-        ]))
+        paginator = self.paginator.page.paginator
+        count = paginator.count
+        return Response(dict(
+            list=data,
+            pagination=dict(
+                total=count,
+                pageSize=paginator.per_page,
+                pages=paginator.num_pages,
+                current=int(self.request.GET.get("page", 1))
+                # current=paginator.page(),
+            )))

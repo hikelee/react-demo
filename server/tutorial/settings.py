@@ -42,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'snippets.middlewares.LogMiddleware'
 ]
 
 ROOT_URLCONF = 'tutorial.urls'
@@ -100,7 +101,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Django REST Framework
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 2,
+    'PAGE_SIZE': 10,
     'DEFAULT_PAGINATION_CLASS': 'snippets.pagination.Pagination',
 }
 

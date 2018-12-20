@@ -8,3 +8,4 @@ whitenoise
 requests
 python_utils
 filelock
+faker
